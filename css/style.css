@@ -1,0 +1,389 @@
+/*
+	99Lime.com HTML KickStart by Joshua Gatcke
+	style.css
+
+*/
+/*---------------------------------
+	IMPORTS
+-----------------------------------*/
+
+
+/*---------------------------------
+	OVERRIDES
+-----------------------------------*/
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arimo'), url(fonts/fontawesome/font/Arimo-400.woff) format('woff');
+}
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arimo Bold'), local('Arimo-Bold'), url(fonts/fontawesome/font/Arimo-700.woff) format('woff');
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Arimo", arial, verdana, sans-serif;
+    font-weight: normal;
+}
+
+thead th,
+tbody th {
+    font-family: "Arimo", arial, verdana, sans-serif;
+}
+
+button,
+a.btn,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    font-family: "Arimo", arial, verdana, sans-serif;
+}
+
+.menu {
+    font-family: "Arimo", arial, verdana, sans-serif;
+}
+
+blockquote {
+    font-family: "Arimo", arial, verdana, sans-serif;
+}
+
+/*---------------------------------
+	LAYOUT
+-----------------------------------*/
+body {
+    margin: 0;
+    padding: 0 0 0 0;
+    color: #000;
+    background: #efefef url(img/gray_jean.png);
+    font: normal 0.9em/150% 'Arimo', arial, verdana, sans-serif;
+    text-shadow: 0px 0px 1px transparent; /* google font pixelation fix */
+}
+
+#wrap {
+    width: 100%;
+    background: #fff;
+    margin: 30px auto 30px auto;
+    padding: 0 2%;
+    border: 1px solid #ccc;
+}
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    color: #999;
+    font-size: 0.8em;
+    text-shadow: 0px 1px 1px #fff;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+#link-top {
+    display: none;
+}
+
+/* NAV BAR*/
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    z-index: 1000;
+}
+
+.navbar #logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    font-size: 1.7em;
+    color: #efefef;
+    text-decoration: none;
+}
+
+.navbar span {
+    color: #86dc00;
+}
+
+.navbar ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0;
+    padding: 0;
+    list-style-type: 0;
+    display: inline-block;
+}
+
+.navbar li a {
+    display: inline-block;
+    color: #efefef;
+    padding: 1em 0.7em;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 100%;
+    font-size: 1.2em;
+}
+
+/*  TERMINAL SECTION */
+
+.terminal .terminal-output .format, .terminal .cmd .format,
+.terminal .cmd .prompt, .terminal .cmd .prompt div, .terminal .terminal-output div div {
+    display: inline-block;
+}
+
+.terminal .clipboard {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.01;
+    filter: alpha(opacity=0.01);
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.01);
+    width: 2px;
+}
+
+.cmd > .clipboard {
+    position: fixed;
+}
+
+.terminal {
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cmd {
+    padding: 0;
+    margin: 0;
+    height: 1.3em;
+    /*margin-top: 3px; */
+}
+
+.terminal .terminal-output div div, .terminal .prompt {
+    display: block;
+    line-height: 14px;
+    height: auto;
+}
+
+.terminal .prompt {
+    float: left;
+}
+
+.terminal {
+    font-family: FreeMono, monospace;
+    color: #aaa;
+    background-color: #000;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.terminal-output > div {
+    /*padding-top: 3px;*/
+}
+
+.terminal .terminal-output div span {
+    display: inline-block;
+}
+
+.terminal .cmd span {
+    float: left;
+    /*display: inline-block; */
+}
+
+.termina .form {
+
+}
+
+.terminal .cmd span.inverted {
+    background-color: #aaa;
+    color: #000;
+}
+
+.terminal .terminal-output div div::-moz-selection,
+.terminal .terminal-output div span::-moz-selection,
+.terminal .terminal-output div div a::-moz-selection {
+    background-color: #aaa;
+    color: #000;
+}
+
+.terminal .terminal-output div div::selection,
+.terminal .terminal-output div div a::selection,
+.terminal .terminal-output div span::selection,
+.terminal .cmd > span::selection,
+.terminal .prompt span::selection {
+    background-color: #aaa;
+    color: #000;
+}
+
+.terminal .terminal-output div.error, .terminal .terminal-output div.error div {
+    color: red;
+}
+
+.clear {
+    clear: both;
+}
+
+.terminal a {
+    color: #0F60FF;
+}
+
+.terminal a:hover {
+    color: red;
+}
+
+.callout {
+    background: #4598ef url(img/gplaypattern.png) repeat; /*#86dc00;*/
+    padding: 3em 0;
+    color: #4598ef;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.98);
+    display: block;
+    text-decoration: none;
+}
+
+.callout + div.grid {
+    margin-top: 20px;
+}
+
+a.callout {
+    cursor: pointer;
+}
+
+.callout i.icon-4x {
+    font-size: 6em;
+}
+
+.callout h4 {
+    margin-bottom: 30px;
+}
+
+.callout-top {
+    margin: 20px 0 0 0;
+}
+
+.callout p {
+    margin-bottom: 0;
+}
+
+.callout .button {
+    margin-top: 10px;
+}
+
+.callout.green {
+    background: #19ad0b url(img/gplaypattern.png) repeat; /*#86dc00;*/
+}
+
+#mc_embed_signup {
+    padding: 0 0 30px 0;
+}
+
+#ui-preview {
+    border: 5px solid #ddd;
+    margin: 30px 0;
+    display: block;
+}
+
+/*---------------------------------
+	Blog
+-----------------------------------*/
+
+.post {
+    border: 1px solid #ccc;
+    padding: 60px 5% 60px 5%;
+    position: relative;
+    background: #fff;
+    margin-bottom: 30px;
+}
+
+.post h4 a {
+    text-decoration: none;
+    color: #000;
+}
+
+.post .meta {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.post p {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+.post.single .meta {
+    bottom: auto;
+    left: auto;
+    top: 20px;
+    right: 5%;
+}
+
+.post.single h3 {
+    margin-top: 2em;
+}
+
+.post .thumb {
+    float: right;
+    margin: 0 0 10px 10px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    background: #fff;
+}
+
+.MarkupPagerNav {
+    clear: both;
+    margin: 1em 0;
+    text-align: center;
+}
+
+.MarkupPagerNav li {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.MarkupPagerNav li a,
+.MarkupPagerNav li.MarkupPagerNavSeparator {
+    display: inline-block;
+    padding: 2px 9px;
+    color: #fff;
+    background: #2f4248;
+    margin-right: 3px;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.MarkupPagerNav li.MarkupPagerNavOn a,
+.MarkupPagerNav li a:hover {
+    color: #fff;
+    background: #4598ef;
+    text-decoration: none;
+}
+
+.MarkupPagerNav li.MarkupPagerNavSeparator {
+    display: inline-block;
+    color: #777;
+    background: #d2e4ea;
+    padding-left: 3px;
+    padding-right: 3px;
+}

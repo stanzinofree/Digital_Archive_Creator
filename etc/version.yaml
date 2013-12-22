@@ -1,0 +1,7 @@
+%Version of DAC
+---
+Version:
+  release : "1"
+  subversion : "0"
+  patch : "0"
+  repo : "stable"

@@ -1,0 +1,30 @@
+%Configuration File for DAC
+---
+
+Path:
+    # This is the absolute path of ocs_dac installation
+    root_folder : "/opt/ocs3_test/"
+
+Server:
+    # This is the URL of OCS installation
+    server : "http://svrapp34/ocsreports/"
+    # This is the absloute path in which there is dbconfig.inc.php
+    conf_file : "/usr/share/ocsinventory-reports/ocsreports/dbconfig.inc.php"
+
+Server_Config:
+    #This is the ip binding interface
+    ip : "0.0.0.0"
+    #This is the port to open
+    port : 8086
+    #This is ssl part
+    ssl : "yes"
+    ssl_cert_path : "/etc/pki/tls/certs/server.crt"
+    ssl_key_path : "/etc/pki/tls/private/server.key"
+
+Administrators:
+    #This section includes username of user promoted administrator
+    user : ["middeia","caldaronem"]
+
+PID:
+    #This is the pidfile where cherrypy save his statements
+    file: 'var/ocs_dac.pid'

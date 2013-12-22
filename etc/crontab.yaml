@@ -1,0 +1,8 @@
+%Configuration File for DAC
+---
+
+
+cron:
+- description: controlla le schede ogni 5 minuti
+  command: "libs/check_updates.py"
+  schedule: "*/5 * * * *"

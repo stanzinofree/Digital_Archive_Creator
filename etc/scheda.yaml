@@ -1,0 +1,32 @@
+%Configuration File for xml output
+#This is the file to configure what informations want keep or remove from your xml
+#To keep an information put it's value to 1, to hide an information put it's value to 0
+#All other values can crash the application so modify this file with attention please
+---
+Account:
+  #This section is for last user account send report
+  accountinfo : 1
+
+Components:
+  #This is the hardware section of the machine
+  controllers : 1
+  drives : 1
+  inputs : 1
+  memories : 1
+  monitors : 1
+  networks : 1
+  ports : 1
+  printers : 1
+  slots : 1
+  sounds : 1
+  storages : 1
+
+Softwares:
+  #This is the software section with bios included
+  softwares : 1
+  bios : 1
+
+Hardware:
+  #This is special area in which goes only hardware string
+  hardware : 1
+

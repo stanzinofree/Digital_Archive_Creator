@@ -1,0 +1,8 @@
+%CRONTAB FILE FOR SYSTEM OPERATION
+---
+
+
+cron:
+- description: controlla se il sito e' giu
+  command: "libs/check_website.py"
+  schedule: "*/1 * * * *"
