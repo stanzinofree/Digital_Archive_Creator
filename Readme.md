@@ -71,7 +71,7 @@ After this installation the software prompt you to write the following informati
 The first step to create directory in which you want put your installation of DAC.
 After you have created the directory, you enter in it and clone the repository:
 
-    git clone git://project.url.here
+    git clone https://github.com/stanzinofree/Digital_Archive_Creator
 
 After you have cloned source you can launch the setup with the command:
 
@@ -155,6 +155,8 @@ v 1.0
 - English human language in cron system
 - Web edit of Cron Task
 - Web edit of Scheda section
+- Better in code documentation
+- Screenshot
 
 
 <a name="license" />
