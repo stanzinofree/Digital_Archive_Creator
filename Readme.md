@@ -17,7 +17,6 @@ It is a web application that read a OCS Database and export data in a fancy and 
 
 
 
-----------
 <a name="prerequisites"/>
 ## Prerequisites
 
@@ -81,9 +80,9 @@ This launch the setup procedure that check your system for DAC dependencies and 
 
 <a name="additional_configuration" />
 ## Additional Configuration
--[Config](#config)
--[Cronetab](#cronetab)
--[Scheda](#scheda)
+- [Config](#config)
+- [Cronetab](#cronetab)
+- [Scheda](#scheda)
 
 <a name="config" />
 ### Config
