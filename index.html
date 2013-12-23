@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Digital archive creator by stanzinofree</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Digital archive creator</h1>
+        <h2>Digital Archive Creator for OCS Inventory NG</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/stanzinofree/Digital_Archive_Creator/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/stanzinofree/Digital_Archive_Creator/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/stanzinofree/Digital_Archive_Creator" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="digital-archive-creator-for-ocs-inventory-ng" class="anchor" href="#digital-archive-creator-for-ocs-inventory-ng"><span class="octicon octicon-link"></span></a>Digital Archive Creator for OCS Inventory NG</h1>
+
+<h1></h1>
+
+<p>This Python software was written to give a better report function to <strong>OCS Inventory NG: <a href="http://www.ocsinventory-ng.org/en/">http://www.ocsinventory-ng.org/en/</a></strong> </p>
+
+<p>It is a web application that read a OCS Database and export data in a fancy and customizable HTML and PDF reports.</p>
+
+<h2>
+<a name="menu" class="anchor" href="#menu"><span class="octicon octicon-link"></span></a>Menu</h2>
+
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#Setup">Setup</a></li>
+<li><a href="#additional_configuration">Additional Configuration</a></li>
+<li><a href="#changelog">Chngelog</a></li>
+<li><a href="#todo">TODO</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#author">Author</a></li>
+</ul><p><a name="prerequisites"></a></p>
+
+<h2>
+<a name="prerequisites" class="anchor" href="#prerequisites"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>At the actual revision D.A.C. working on a machine with this requisites:</p>
+
+<ul>
+<li>Centos as OS Distribution (I've tested on 5.X and 6.X)</li>
+<li>Python 2.6</li>
+<li>MySQL DB installed from Centos Repos</li>
+<li>OCS Inventory NG v.2.0</li>
+</ul><p>In the next releases I test even Debian and Ubuntu OS</p>
+
+<p><a name="Setup"></a></p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>There are some softwares dependencies that DAC requires to work and you can install with launching setup routines.
+Read the above Warning about dependencies that setup try to install and workaround to bypass overwriting of your installed version of these softwares.</p>
+
+<p><img class="emoji" title=":heavy_exclamation_mark:" alt=":heavy_exclamation_mark:" src="https://github.global.ssl.fastly.net/images/icons/emoji/heavy_exclamation_mark.png" height="20" width="20" align="absmiddle"><strong>setup_check.py</strong> TRY TO INSTALL THE FOLLOWING DEPENDECIES:
+     -wget
+     -python-setuptools
+     -make
+     -gcc
+     -MySQL-python
+     -libxslt
+     -python-devel
+     -pyOpenSSL</p>
+
+<p>If you have special customization of this softwares you can exclude from installation some packages changing following line:</p>
+
+<pre><code>package = ["wget", "python-setuptools", "make", "gcc", "MySQL-python", "libxslt", "python-devel","pyOpenSSL"]
+</code></pre>
+
+<p>In the next release I planning to implement launching switch to bypass part of installation routine (redis or wkhtml or some packages too) to save personal configuration of installed software.</p>
+
+<p>The setup_check.py also try to install this python modules trough easy_install software:
+    -cherrypy
+    -simplejson
+    -pyyaml
+    -python-crontab
+    -redis</p>
+
+<p>After this installation the software prompt you to write the following informations:
+    -OCS absolute installation path
+    -IP on which application listen to (0.0.0.0  for all ip)
+    -Port on which application listen to
+    -SSL Cert Path absolute path(blank if you want disable SSL)
+    -SSL Cert Key absolute path(blank if you want disable SSL)</p>
+
+<h3>
+<a name="first-step" class="anchor" href="#first-step"><span class="octicon octicon-link"></span></a>First Step</h3>
+
+<p>The first step to create directory in which you want put your installation of DAC.
+After you have created the directory, you enter in it and clone the repository:</p>
+
+<pre><code>git clone https://github.com/stanzinofree/Digital_Archive_Creator
+</code></pre>
+
+<p>After you have cloned source you can launch the setup with the command:</p>
+
+<pre><code>python setup_check.py
+</code></pre>
+
+<p>This launch the setup procedure that check your system for DAC dependencies and if did not found them it provide to install it.</p>
+
+<p><a name="additional_configuration"></a></p>
+
+<h2>
+<a name="additional-configuration" class="anchor" href="#additional-configuration"><span class="octicon octicon-link"></span></a>Additional Configuration</h2>
+
+<ul>
+<li><a href="#config">Config</a></li>
+<li><a href="#cronetab">Cronetab</a></li>
+<li><a href="#scheda">Scheda</a></li>
+</ul><p><a name="config"></a></p>
+
+<h3>
+<a name="config" class="anchor" href="#config"><span class="octicon octicon-link"></span></a>Config</h3>
+
+<p>In file config.yaml there are some voices to configure, usually if you run setup good you don't have to touch it, if you don't want edit manually you can launch from DAC folder:</p>
+
+<pre><code>python libs/setup_config.py
+</code></pre>
+
+<p>If you want edit manually this is the voices in files:</p>
+
+<ul>
+<li>Path:
+
+<ul>
+<li>root_folder : This is the absolute path of DAC folder, root of the software</li>
+</ul>
+</li>
+<li>Server:
+
+<ul>
+<li>server : web address on which ocs respond</li>
+<li>conf_file : is the absolute path of dbconfig.inc.php file that is the configuration file of ocs </li>
+</ul>
+</li>
+<li>Server_Config:
+
+<ul>
+<li>ip : ip on which web application listen for connection (ip of server or 0.0.0.0)</li>
+<li>port : port on which web application listen for connection (if you have iptables turned on you must add an entry for this port)</li>
+<li>ssl : in this release this field is unused</li>
+<li>ssl_cert_path : if you want ssl you must insert the absolute path of certification in form of file.crt</li>
+<li>ssl_key_path : if you want ssl you must insert the absolute path of key file in form of file.key</li>
+</ul>
+</li>
+<li>Administrators:
+
+<ul>
+<li>user : this field contain the username of ocs users that you want promoted administrators of DAC, the form is ["user1", "user2"]</li>
+</ul>
+</li>
+<li>PID:
+
+<ul>
+<li>file : This is the pid file (inside DAC) in which DAC save his state</li>
+</ul>
+</li>
+</ul><p><a name="cronteab"></a></p>
+
+<h3>
+<a name="cronetab" class="anchor" href="#cronetab"><span class="octicon octicon-link"></span></a>Cronetab</h3>
+
+<p>The cronetab component is divided in two parts, one for system's tasks and the other one for application's tasks.
+The System's Tasks are written in system_cron.yaml file and it contains one task to check if website is up and if the site is down it try to start up the site.
+I put this task in separate file to put in read only mode because this task is core part of the software and in the next release I want to give the possibility to admin to edit others task in a web way.
+The other file cronetab.yaml contains the system routine jobs like search for new computer and you can edit the frequency modifying its value.
+The syntax for both files is under the cron leaf.</p>
+
+<ul>
+<li>description: description of task (it is facultative but I encourage you to write in it to maintain better the tasks).</li>
+<li>command : is the python file that you want launch, now there is only one python check to control, if you write some python plugin to extend check you can call it in this field writing the relative path starting from root dac folder.</li>
+<li>schedule: is the cron syntax schedule, in the next release I want to try to implement English natural language syntax support but for now you have to edit in cron syntax way.</li>
+</ul><p><a name="scheda"></a></p>
+
+<h3>
+<a name="scheda" class="anchor" href="#scheda"><span class="octicon octicon-link"></span></a>Scheda</h3>
+
+<p>In scheda.yaml you can find sections defined in OCS report engine and you can decide which of them you want report in your fancy reports.
+You can enable the view setting the value to 1 and disabled with 0.
+In the next releases I want introduce web editing choise instead of file manually editing and control to normalize file when value differ from 1 or 0.
+The voices are:</p>
+
+<ul>
+<li>Account
+
+<ul>
+<li>accountinfo</li>
+</ul>
+</li>
+<li>Components
+
+<ul>
+<li>controllers</li>
+<li>drives</li>
+<li>inputs</li>
+<li>memories</li>
+<li>monitors</li>
+<li>networks</li>
+<li>ports</li>
+<li>printers</li>
+<li>slots</li>
+<li>sounds</li>
+<li>storages</li>
+</ul>
+</li>
+<li>Softwares
+
+<ul>
+<li>softwares</li>
+<li>bios</li>
+</ul>
+</li>
+<li>Hardware
+
+<ul>
+<li>hardware</li>
+</ul>
+</li>
+</ul><p><a name="changelog"></a></p>
+
+<h2>
+<a name="changelog" class="anchor" href="#changelog"><span class="octicon octicon-link"></span></a>Changelog</h2>
+
+<p>v 1.0</p>
+
+<ul>
+<li>Release software</li>
+</ul><p><a name="todo"></a></p>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>English human language in cron system</li>
+<li>Web edit of Cron Task</li>
+<li>Web edit of Scheda section</li>
+<li>Better in code documentation</li>
+<li>Screenshot</li>
+</ul><p><a name="license"></a></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This software is released under <a href="http://www.gnu.org/licenses/lgpl-2.1.txt" title="LGPL">LGPL</a></p>
+
+<p><a name="credits"></a></p>
+
+<h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Thanks to the author of the module I use in my software and the author of templates</p>
+
+<ul>
+<li><a href="http://www.99lime.com/" title="HTML Kickstart">HTML Kickstart Template</a></li>
+<li><a href="http://redis.io/" title="Redis">Redis</a></li>
+<li><a href="https://github.com/andymccurdy/redis-py" title="Redis-py">Redis-py</a></li>
+<li><a href="http://pyyaml.org/" title="PyYAML">PyYAML</a></li>
+<li><a href="http://www.cherrypy.org/" title="CherryPy">Cherrypy</a></li>
+<li>
+<a href="http://stackoverflow.com/users/190597/unutbu">Unutbu</a> from stackoverflow for <a href="http://stackoverflow.com/questions/3696430/print-colorful-string-out-to-console-with-python">this solution</a> on colored term</li>
+</ul><p><a name="author"></a></p>
+
+<h2>
+<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+
+<p><strong>Author</strong>: Middei Alessandro
+<strong>Contact</strong>: <a href="mailto:alessandro.middei@gmail.com">alessandro.middei@gmail.com</a>
+<strong>Website</strong>: <a href="http://www.stanzinofree.net">www.stanzinofree.net</a>
+<strong>Skype</strong>:alessandro.middei</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
