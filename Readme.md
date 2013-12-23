@@ -37,14 +37,14 @@ There are some softwares dependencies that DAC requires to work and you can inst
 Read the above Warning about dependencies that setup try to install and workaround to bypass overwriting of your installed version of these softwares.
 
 :heavy_exclamation_mark: **setup_check.py** TRY TO INSTALL THE FOLLOWING DEPENDECIES:
-     -wget
-     -python-setuptools
-     -make
-     -gcc
-     -MySQL-python
-     -libxslt
-     -python-devel
-     -pyOpenSSL
+     - wget
+     - python-setuptools
+     - make
+     - gcc
+     - MySQL-python
+     - libxslt
+     - python-devel
+     - pyOpenSSL
 
 If you have special customization of this softwares you can exclude from installation some packages changing following line:
 
@@ -53,18 +53,18 @@ If you have special customization of this softwares you can exclude from install
 In the next release I planning to implement launching switch to bypass part of installation routine (redis or wkhtml or some packages too) to save personal configuration of installed software.
 
 The setup_check.py also try to install this python modules trough easy_install software:
-    -cherrypy
-    -simplejson
-    -pyyaml
-    -python-crontab
-    -redis
+    - cherrypy
+    - simplejson
+    - pyyaml
+    - python-crontab
+    - redis
 
 After this installation the software prompt you to write the following informations:
-    -OCS absolute installation path
-    -IP on which application listen to (0.0.0.0  for all ip)
-    -Port on which application listen to
-    -SSL Cert Path absolute path(blank if you want disable SSL)
-    -SSL Cert Key absolute path(blank if you want disable SSL)
+    - OCS absolute installation path
+    - IP on which application listen to (0.0.0.0  for all ip)
+    - Port on which application listen to
+    - SSL Cert Path absolute path(blank if you want disable SSL)
+    - SSL Cert Key absolute path(blank if you want disable SSL)
 
 ### First Step
 
