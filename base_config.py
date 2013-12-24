@@ -3,6 +3,7 @@
 """
  This file contain all the header (logged and not logged user) and footer for all html files.
 If you made a modfiy here you can change header for all html pages.
+
 """
 
 
